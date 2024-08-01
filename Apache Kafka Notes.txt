@@ -1,0 +1,33 @@
+Install Java
+Install Apache Zoo Keeper
+Intall Kafka
+
+Go to Zoo Keeper Folder					 - cd zookeeper-3.4.6
+Make a directory for Zoo Keeper 		      	 - mkdir data
+Edit conf/zoo.cfg					 - Open with editor like notepad
+Add the following data to zoo.cfg
+
+tickTime=2000
+dataDir=/path/to/zookeeper/data
+clientPort=2181
+initLimit=5
+syncLimit=2
+
+Start ZooKeeper Server					- bin\zkServer.cmd start or bin\zkServer.cmd
+                                                          (D:\installation\apache-zookeeper-3.8.1-bin\bin zkServer.cmd)
+
+Clear the contents of tmp folder of Zookeeper/Kafka
+
+rm /s d:\tmp
+
+
+Change to Kafka installation folder
+
+Start Kafka							- bin\windows\kafka-server-start config\server.properties
+								(D:\installation\ApacheKafka\bin\windows\kafka-server-start config\server.properties
+Stop Kafka							- bin\windows\kafka-server-stop config/server.properties
+Creating a Kafka Topic					- bin\windows\kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic Hello-Kafka
+List Topics							- bin\windows\kafka-topics --list --bootstrap-server localhost:9092
+
+Start a Produce  CLI					- bin\windows\kafka-console-producer --broker-list localhost:9092 --topic Hello-Kafka
+Start a Consumer CLI					- bin\windows\kafka-console-consumer --bootstrap-server localhost:9092 --topic Hello-Kafka --from-beginning
